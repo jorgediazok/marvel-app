@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       query: '',
-      results: {},
+      data: [],
       loading: false,
       message: ''
     };
@@ -16,21 +16,21 @@ class SearchBar extends React.Component {
     this.setState({ query: query, loading: true, message: '' });
   };
 
-  handleMarvelApi = event => {
+  handleMarvelApi = () => {
     const urlApi =
       'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868';
     fetch(urlApi)
       .then(res => res.json())
       .then(data =>
-        this.setState(state => ({
-          ...state,
-          results: data.results
+        this.setState(currentState => ({
+          ...currentState,
+          data: data.results
         }))
       );
   };
 
   render() {
-    const { query, results, loading, message } = this.state;
+    const { query } = this.state;
     return (
       <div className="container">
         <img
