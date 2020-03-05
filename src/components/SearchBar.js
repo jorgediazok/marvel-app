@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
             <i
               className="fa fa-search search-icon"
               aria-hidden="true"
-              /*onClick={this.props.handleMarvelApi}*/
+              onClick={this.props.filteredData}
             />
           </label>
         </div>
