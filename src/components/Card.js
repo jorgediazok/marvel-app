@@ -11,31 +11,39 @@ class HeroeCard extends Component {
             <div className="card" key={index}>
               <div className="card-body">
                 <h1>{character.name}</h1>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt="Heroe"
-                />
+                <a href={`${character.urls[0].url}`}>
+                  <img
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    alt="Heroe"
+                  />
+                </a>
               </div>
               <div className="card-body">
                 <h1>{character.name}</h1>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt="Heroe"
-                />
+                <a href={`${character.urls[0].url}`}>
+                  <img
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    alt="Heroe"
+                  />
+                </a>
               </div>
               <div className="card-body">
                 <h1>{character.name}</h1>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt="Heroe"
-                />
+                <a href={`${character.urls[0].url}`}>
+                  <img
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    alt="Heroe"
+                  />
+                </a>
               </div>
               <div className="card-body">
                 <h1>{character.name}</h1>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt="Heroe"
-                />
+                <a href={`${character.urls[0].url}`}>
+                  <img
+                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                    alt="Heroe"
+                  />
+                </a>
               </div>
             </div>
           );
