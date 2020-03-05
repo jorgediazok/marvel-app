@@ -34,6 +34,7 @@ class App extends React.Component {
   handleOnInputChange = event => {
     const query = event.target.value;
     this.setState({ query: query, loading: true, message: '' });
+    this.state.results.filter();
   };
 
   render() {
