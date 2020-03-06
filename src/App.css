@@ -4,30 +4,50 @@
   box-sizing: border-box;
 }
 
-.container {
+/*Header*/
+
+.header-container {
   margin: 36px auto;
   width: 100%;
   max-width: 800px;
 }
 
-.heading {
+.header-title {
   font-size: 30px;
-  padding: 16px 0;
+  padding-top: 10px;
   color: #444;
   text-align: center;
 }
 
-.search-label {
-  position: relative;
+.header-under-title {
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  color: #444;
 }
 
-.container input {
-  width: 100%;
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-bottom: 0;
+}
+
+/*Search Bar*/
+
+input {
+  width: 50%;
   padding: 16px;
   font-size: 36px;
   font-style: italic;
+  margin-left: 25%;
   color: #444;
   outline: none;
+}
+
+.search-label {
+  position: relative;
 }
 
 .search-icon {
@@ -36,12 +56,6 @@
   font-size: 24px;
   color: #555;
   right: 18px;
-}
-
-.logo {
-  margin-left: 40%;
-  margin-bottom: 10px;
-  width: 20%;
 }
 
 /*Cards*/
@@ -53,13 +67,14 @@
   justify-content: space-around;
   align-items: center;
   padding: 20px;
+  margin-top: 20px;
 }
 
 .card-body {
   font-family: 'Bebas Neue', cursive;
   text-align: center;
   width: 250px;
-  height: 450px;
+  height: 400px;
   border: 2px solid black;
   color: #555;
   margin: 10px;

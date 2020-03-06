@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
 import HeroeCard from './components/Card';
+import Header from './components/Header';
 import './App.css';
 
 class App extends React.Component {
@@ -50,13 +51,21 @@ class App extends React.Component {
       );
   };
 
+  handleKeyPress = event => {
+    if (event.charCode === '13') {
+      console.log('Enter press here!');
+    }
+  };
+
   render() {
     const { data } = this.state;
     return (
       <div>
+        <Header />
         <SearchBar
           handleOnInputChange={this.handleOnInputChange}
           filterData={this.filterData}
+          handleKeyPress={this.handleKeyPress}
         />
         <HeroeCard data={data} />
       </div>
