@@ -3,11 +3,14 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="container">
-        <img
-          src="https://cdn.iconscout.com/icon/free/png-256/marvel-282124.png"
-          alt="marvel logo"
-          className="logo"
-        />
+        <a href="/">
+          <img
+            src="https://cdn.iconscout.com/icon/free/png-256/marvel-282124.png"
+            alt="marvel logo"
+            className="logo"
+          />
+        </a>
+
         <h2 className="heading">Live Search: Marvel Characters</h2>
 
         <div className="search">
@@ -22,7 +25,7 @@ class SearchBar extends React.Component {
             <i
               className="fa fa-search search-icon"
               aria-hidden="true"
-              onClick={this.props.filteredData}
+              onClick={this.props.filterData}
             />
           </label>
         </div>
