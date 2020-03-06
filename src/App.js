@@ -45,9 +45,12 @@ class App extends React.Component {
 
   filterData = () => {
     const query = this.state.query;
+    const data = this.state.data;
     const urlApi = `https://gateway.marvel.com:443/v1/public/characters?name=${query}&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868`;
     if (query === '') {
       return;
+    } else if (data === []) {
+      return <p>{this.handleText()}</p>;
     } else {
       fetch(urlApi)
         .then(res => res.json())
@@ -58,6 +61,10 @@ class App extends React.Component {
           }))
         );
     }
+  };
+
+  handleText = () => {
+    return <p>No Matching Found</p>;
   };
 
   render() {
