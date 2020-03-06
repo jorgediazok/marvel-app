@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
-import HeroeCard from './components/Card';
+import HeroeCard from './components/Cards';
 import Header from './components/Header';
 import './App.css';
 
@@ -17,7 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const urlApi =
-      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868&limit=20&offset=0';
+      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868&limit=50&offset=0';
     fetch(urlApi)
       .then(res => res.json())
       .then(res =>

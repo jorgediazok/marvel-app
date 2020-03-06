@@ -11,10 +11,10 @@ function Header() {
         />
       </a>
 
-      <h3 className="header-title">Search Your Favourite Marvel Characters</h3>
-      <h1 className="header-under-title">
+      <h1 className="header-title">Search Your Favourite Marvel Characters</h1>
+      <h3 className="header-under-title">
         And click on their card to learn more about them!
-      </h1>
+      </h3>
     </div>
   );
 }

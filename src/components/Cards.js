@@ -13,7 +13,7 @@ class HeroeCard extends React.Component {
                   <a href={`${character.urls[1].url}`}>
                     <img
                       src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                      alt="Heroe"
+                      alt="Marvel-Character"
                     />
                   </a>
                 </div>
