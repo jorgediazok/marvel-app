@@ -9,12 +9,12 @@ class SearchBar extends React.Component {
             name="query"
             id="search-input"
             onChange={this.props.handleOnInputChange}
+            onKeyPress={this.props.handleKeyPress}
           />
           <i
             className="fa fa-search search-icon"
             aria-hidden="true"
             onClick={this.props.filterData}
-            onKeyDown={this.props.handleKeyPress}
           />
         </label>
       </div>

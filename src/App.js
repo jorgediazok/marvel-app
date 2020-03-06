@@ -17,7 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const urlApi =
-      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868';
+      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868&limit=100&offset=0';
     fetch(urlApi)
       .then(res => res.json())
       .then(data =>
@@ -37,23 +37,26 @@ class App extends React.Component {
     this.setState({ query: query, loading: true, message: '' });
   };
 
+  handleKeyPress = event => {
+    if (event.charCode === 13) {
+      this.filterData();
+    }
+  };
+
   filterData = () => {
     const query = this.state.query;
     const urlApi = `https://gateway.marvel.com:443/v1/public/characters?name=${query}&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868`;
-
-    fetch(urlApi)
-      .then(res => res.json())
-      .then(data =>
-        this.setState(currentState => ({
-          ...currentState,
-          data: data.data.results
-        }))
-      );
-  };
-
-  handleKeyPress = event => {
-    if (event.charCode === '13') {
-      console.log('Enter press here!');
+    if (query === '') {
+      return;
+    } else {
+      fetch(urlApi)
+        .then(res => res.json())
+        .then(data =>
+          this.setState(currentState => ({
+            ...currentState,
+            data: data.data.results
+          }))
+        );
     }
   };
 
@@ -74,3 +77,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*        <p className="no-found">{this.handleText()}</p>
+ */
