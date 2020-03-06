@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './components/SearchBar';
 import HeroeCard from './components/Cards';
 import Header from './components/Header';
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -66,6 +66,7 @@ class App extends React.Component {
           }));
         }
       });
+    window.scrollTo(300, 500);
   };
 
   render() {
