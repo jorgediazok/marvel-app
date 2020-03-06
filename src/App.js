@@ -17,13 +17,13 @@ class App extends React.Component {
 
   componentDidMount() {
     const urlApi =
-      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868&limit=100&offset=0';
+      'https://gateway.marvel.com:443/v1/public/characters?&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868&limit=20&offset=0';
     fetch(urlApi)
       .then(res => res.json())
-      .then(data =>
+      .then(res =>
         this.setState(currentState => ({
           ...currentState,
-          data: data.data.results
+          data: res.data.results
         }))
       );
   }
@@ -45,26 +45,51 @@ class App extends React.Component {
 
   filterData = () => {
     const query = this.state.query;
-    const data = this.state.data;
     const urlApi = `https://gateway.marvel.com:443/v1/public/characters?name=${query}&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868`;
-    if (query === '') {
-      return;
-    } else if (data === []) {
-      return <p>{this.handleText()}</p>;
-    } else {
-      fetch(urlApi)
-        .then(res => res.json())
-        .then(data =>
+    fetch(urlApi)
+      .then(res => res.json())
+      .then(res => {
+        const resNotFound = !res.data.results.length ? 'No results' : '';
+        this.setState(currentState => ({
+          ...currentState,
+          data: res.data.results,
+          message: resNotFound,
+          loading: false
+        }));
+      })
+      .catch(error => {
+        if (error) {
           this.setState(currentState => ({
             ...currentState,
-            data: data.data.results
-          }))
-        );
-    }
+            message: 'Failed to fetch the data. Please check your network',
+            loading: false
+          }));
+        }
+      });
   };
 
-  handleText = () => {
-    return <p>No Matching Found</p>;
+  renderSearchResults = () => {
+    if (this.state.data && this.state.data.length) {
+      return (
+        <div className="card-container">
+          {this.props.data.map((character, index) => {
+            return (
+              <div className="card" key={index}>
+                <div className="card-body">
+                  <h1>{character.name}</h1>
+                  <a href={`${character.urls[1].url}`}>
+                    <img
+                      src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                      alt="Heroe"
+                    />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
   };
 
   render() {
@@ -84,6 +109,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*        <p className="no-found">{this.handleText()}</p>
- */
