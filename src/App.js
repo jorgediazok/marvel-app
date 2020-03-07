@@ -45,7 +45,7 @@ class App extends React.Component {
 
   filterData = () => {
     const query = this.state.query;
-    const urlApi = `https://gateway.marvel.com:443/v1/public/characters?name=${query}&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868`;
+    const urlApi = `https://gateway.marvel.com:443/v1/public/characters?ts=1&name=${query}&apikey=5f91b82fe57a936337f441738b95bad3&hash=00cd6e4d2acd4e6753d2a7837ce2c868`;
     fetch(urlApi)
       .then(res => res.json())
       .then(res => {
