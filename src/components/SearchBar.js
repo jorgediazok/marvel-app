@@ -8,6 +8,7 @@ class SearchBar extends React.Component {
           <input
             type="text"
             name="query"
+            autoFocus
             id="search-input"
             onChange={this.props.handleOnInputChange}
             onKeyPress={this.props.handleKeyPress}
